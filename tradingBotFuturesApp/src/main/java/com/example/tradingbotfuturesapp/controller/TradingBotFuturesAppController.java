@@ -1,4 +1,4 @@
-package com.example.tradingBotFuturesApp.controller;
+package com.example.tradingbotfuturesapp.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -185,13 +185,13 @@ public class TradingBotFuturesAppController
     }
     
     @RequestMapping(value = "/queryOrder", method = RequestMethod.GET, produces = "text/html")
-     public String queryOrder(@RequestParam("symbol") String symbol, @RequestParam("orderIdOPT") String orderIdOPT, 
+     public String queryOrder(@RequestParam("symbol") String symbol, String orderIdOPT, 
              String origClientOrderIdOPT) throws NoSuchAlgorithmException, InvalidKeyException, IOException, InterruptedException
     {
         // Signature method
         long recvWindow = 6000;
         long timeStamp = this.checkServerTime();
-        String queryString = "symbol="+symbol+"&orderId="+orderIdOPT+"&recvWindow="+recvWindow+"&timestamp="+timeStamp;
+        String queryString = "symbol="+symbol+"&recvWindow="+recvWindow+"&timestamp="+timeStamp;
         Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
         SecretKeySpec secretKeySpec = new SecretKeySpec(this.privateKey.getBytes(), "HmacSHA256");
         sha256_HMAC.init(secretKeySpec);

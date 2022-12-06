@@ -45,7 +45,7 @@
                         <artifactId>commons-codec</artifactId>
                         <version>1.14</version>
                         <type>jar</type>
-                </dependency>      
+                </dependency> 
 	</dependencies>
 
 	<build>
